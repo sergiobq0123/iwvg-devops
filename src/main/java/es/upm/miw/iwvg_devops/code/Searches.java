@@ -24,4 +24,11 @@ public class Searches {
                         .map(Fraction::decimal)
                         .filter(decimal -> decimal < 0));
     }
+
+    public Stream<String> findUserIdByAllProperFraction() {
+        return new UserDatabase().findAll()
+                .filter(user -> user.getFractions().stream()
+                        .allMatch(Fraction::isProper))
+                .map(User::getId);
+    }
 }
