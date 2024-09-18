@@ -52,4 +52,61 @@ class FractionTest {
     void testDecimal() {
         assertEquals(0.75, fraction.decimal(), 0.0001);
     }
+
+    void testIsProper() {
+        Fraction properFraction = new Fraction(2, 3);
+        Fraction improperFraction = new Fraction(5, 4);
+
+        assertTrue(properFraction.isProper());
+        assertFalse(improperFraction.isProper());
+    }
+
+    @Test
+    void testIsImproper() {
+        Fraction properFraction = new Fraction(2, 3);
+        Fraction improperFraction = new Fraction(5, 4);
+
+        assertFalse(properFraction.isImproper());
+        assertTrue(improperFraction.isImproper());
+    }
+
+    @Test
+    void testIsEquivalent() {
+        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(2, 4);
+        Fraction fraction3 = new Fraction(3, 5);
+
+        assertTrue(fraction1.isEquivalent(fraction2));
+        assertFalse(fraction1.isEquivalent(fraction3));
+    }
+
+    @Test
+    void testAdd() {
+        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(1, 3);
+
+        Fraction result = fraction1.add(fraction2);
+        assertEquals(5, result.getNumerator());
+        assertEquals(6, result.getDenominator());
+    }
+
+    @Test
+    void testMultiply() {
+        Fraction fraction1 = new Fraction(2, 3);
+        Fraction fraction2 = new Fraction(3, 4);
+
+        Fraction result = fraction1.multiply(fraction2);
+        assertEquals(6, result.getNumerator());
+        assertEquals(12, result.getDenominator());
+    }
+
+    @Test
+    void testDivide() {
+        Fraction fraction1 = new Fraction(2, 3);
+        Fraction fraction2 = new Fraction(4, 5);
+
+        Fraction result = fraction1.divide(fraction2);
+        assertEquals(10, result.getNumerator());
+        assertEquals(12, result.getDenominator());
+    }
 }
