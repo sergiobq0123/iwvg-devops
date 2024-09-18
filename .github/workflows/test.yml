@@ -1,7 +1,7 @@
 name: DevOps
 on:
   push:
-    branches: [ "release-*", "develop" ]
+    branches: [ "release-*" ]
 jobs:
   devops:
     name: Test - Unit & Integration & SonarCloud Scan & Slack WebHook
