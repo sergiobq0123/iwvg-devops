@@ -19,6 +19,7 @@ public class Searches {
     }
 
     public Stream<Double> findDecimalFractionByNegativeSignFraction() {
+        // Simulate fix bug
         return new UserDatabase().findAll()
                 .flatMap(user -> user.getFractions().stream()
                         .map(Fraction::decimal)
