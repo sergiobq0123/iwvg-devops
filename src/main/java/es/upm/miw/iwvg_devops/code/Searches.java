@@ -17,4 +17,11 @@ public class Searches {
                         .anyMatch(Fraction::isProper))
                 .map(User::getId);
     }
+
+    public Stream<Double> findDecimalFractionByNegativeSignFraction() {
+        return new UserDatabase().findAll()
+                .flatMap(user -> user.getFractions().stream()
+                        .map(Fraction::decimal)
+                        .filter(decimal -> decimal < 0));
+    }
 }
